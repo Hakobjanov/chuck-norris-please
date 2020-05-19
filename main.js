@@ -96,3 +96,13 @@ function showCategories(e) {
 function highlightQuery(string, query) {
   return string.replace(new RegExp(`(${query})`), "<b>$1</b>");
 }
+
+function buildJoke(data) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "wrapper";
+  const jokeId = document.createElement("div");
+  jokeId.className = "jokeID";
+  const joke = document.createElement("div");
+  joke.className = "joke";
+  const likeBtn = document.createElement("input");
+}
