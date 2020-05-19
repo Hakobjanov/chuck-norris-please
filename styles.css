@@ -8,33 +8,32 @@
   position: relative;
 }
 
-.likeBtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
+.wrapper {
+  background-image: url(./images/message.svg);
+  background-repeat: no-repeat;
+  background-position: 20px 20px;
 }
+
 .hidden {
   display: none;
 }
-.like,
-.liked {
-  position: absolute;
+
+.joke {
+  height: 50px;
 }
 
-.liked {
-  opacity: 0;
+.like :checked + svg .fill {
+  width: 20px;
+  height: 17px;
+  fill: #ff6767;
 }
 
-.active {
-  opacity: 1;
-}
-
-.likeBtn {
+/* .likeBtn {
   transition: all 0.3s ease-in-out;
 }
 .likeBtn:hover {
   transform: scale(1.2);
-}
+} */
 .cat :checked + span {
   background: pink !important;
   color: #000;
