@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Amighty Chuck Norris Jokes</title>
+  </head>
+  <body>
+    <h1>Chuck norris</h1>
+
+    <div>
+      <input type="radio" name="mode" value="random" checked />Random<br />
+      <input
+        type="radio"
+        class="categoriesBtn"
+        name="mode"
+        value="categories"
+      />From categories
+      <ul class="categories"></ul>
+
+      <input type="radio" name="mode" value="search" />Search
+      <input type="text" class="searchField hidden" />
+    </div>
+
+    <button class="getJokesBtn">Get some jokes now</button>
+
+    <ul class="categories"></ul>
+
+    <div class="joke-container hidden">
+      <div class="jokeId"></div>
+      <div class="joke"></div>
+      <a href="#" class="likeBtn hidden">
+        <img class="like" src="./images/like.png" alt="" />
+        <img class="liked" src="./images/heart.png" alt="" />
+      </a>
+      <div class="update"></div>
+      <div class="joke-category"></div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

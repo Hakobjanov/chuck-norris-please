@@ -1,0 +1,49 @@
+.categories {
+  list-style: none;
+  margin: 0;
+}
+
+.joke-container {
+  background-color: #ccc;
+  position: relative;
+}
+
+.likeBtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+}
+.hidden {
+  display: none;
+}
+.like,
+.liked {
+  position: absolute;
+}
+
+.liked {
+  opacity: 0;
+}
+
+.active {
+  opacity: 1;
+}
+
+.likeBtn {
+  transition: all 0.3s ease-in-out;
+}
+.likeBtn:hover {
+  transform: scale(1.2);
+}
+.cat :checked + span {
+  background: pink !important;
+  color: #000;
+}
+.cat {
+  color: #ccc;
+  cursor: pointer;
+}
+
+.cat:hover {
+  color: #000;
+}
