@@ -42,11 +42,13 @@ function handleLike(event, data) {
   console.log(event.target.checked);
   if (event.target.checked) {
     favourites.push(data);
+    //TODO update favContainer
   } else {
     favourites.splice(
       favourites.findIndex((joke) => joke.id === data.id),
       1
     );
+    //TODO update favContainer
   }
   localStorage.favourites = JSON.stringify(favourites);
 }

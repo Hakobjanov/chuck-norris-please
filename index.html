@@ -3,32 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
     <title>Amighty Chuck Norris Jokes</title>
   </head>
   <body>
-    <h1>Chuck norris</h1>
+    <div class="desktop">
+      <div class="chuckJokes">
+        <div class="intro">
+          <h2 class="msi">MSI 2020</h2>
+          <h2 class="greet">Hey!</h2>
+          <h1 class="title">Let's try to find a joke for you:</h1>
+        </div>
+        <div class="mode-selection">
+          <input
+            id="randomMode"
+            class="randomMode"
+            type="radio"
+            name="mode"
+            value="random"
+            checked
+          /><label for="randomMode"> Random</label><br />
+          <input
+            id="categoriesMode"
+            class="categoriesMode"
+            type="radio"
+            name="mode"
+            value="categories"
+          /><label for="categoriesMode">From categories</label>
+          <ul class="categories"></ul>
 
-    <div>
-      <input type="radio" name="mode" value="random" checked />Random<br />
-      <input
-        type="radio"
-        class="categoriesBtn"
-        name="mode"
-        value="categories"
-      />From categories
-      <ul class="categories"></ul>
+          <input
+            id="searchMode"
+            class="searchMode"
+            type="radio"
+            name="mode"
+            value="search"
+          /><label for="searchMode">Search</label>
+          <input type="text" class="searchField hidden" />
+        </div>
 
-      <input type="radio" name="mode" value="search" />Search
-      <input type="text" class="searchField hidden" />
+        <button class="getJokesBtn">Get some jokes now</button>
+
+        <div class="joke-container"></div>
+      </div>
+      <div class="favourites">Favourite</div>
     </div>
-
-    <button class="getJokesBtn">Get some jokes now</button>
-
-    <ul class="categories"></ul>
-
-    <div class="joke-container"></div>
-    <div class="favourites"></div>
     <script src="./main.js"></script>
   </body>
 </html>

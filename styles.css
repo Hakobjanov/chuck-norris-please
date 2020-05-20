@@ -1,6 +1,130 @@
+/*global styles*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+
+/*desktop styles*/
+.desktop {
+  display: flex;
+  height: 100vh;
+}
+
+/*chick Jokes section styles*/
+.chuckJokes {
+  width: 66.66%;
+  padding: 40px 0 0 140px;
+}
+
+.msi {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  margin-bottom: 78px;
+}
+
+.greet {
+  font-size: 32px;
+  line-height: 44px;
+  font-weight: 700;
+}
+
+.title {
+  font-size: 24px;
+  line-height: 44px;
+  font-weight: 500;
+  margin-bottom: 43px;
+}
+
+.mode-selection {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.mode-selection input[type="radio"] {
+  display: none;
+}
+
+.mode-selection label:not(.cat) {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  padding-left: 35px;
+  line-height: 18px;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.mode-selection label:not(.cat)::before {
+  content: "";
+  background: url(./images/empty-mode.svg);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+}
+
+.mode-selection input[type="radio"]:checked + label::before {
+  background: url(./images/checked.svg);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+/*favourites section styles*/
+.favourites {
+  width: 33.33%;
+  background-color: #f8f8f8;
+}
+
 .categories {
+  display: flex;
   list-style: none;
   margin: 0;
+}
+
+.categories li {
+  margin: 20px 10px 20px 0;
+}
+
+.categories li:hover {
+  background-color: #f8f8f8;
+}
+
+.cat span {
+  color: #ababab;
+  border: 2px solid #f8f8f8;
+  border-radius: 6px;
+  padding: 6px 15px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.cat span:hover {
+  background-color: #f8f8f8;
+}
+
+.cat :checked + span {
+  background: pink !important;
+  border-radius: 6px;
+  padding: 6px 15px;
+
+  color: #000;
+}
+
+.categories input[type="radio"] {
+  display: none;
 }
 
 .joke-container {
@@ -34,15 +158,3 @@
 .likeBtn:hover {
   transform: scale(1.2);
 } */
-.cat :checked + span {
-  background: pink !important;
-  color: #000;
-}
-.cat {
-  color: #ccc;
-  cursor: pointer;
-}
-
-.cat:hover {
-  color: #000;
-}
