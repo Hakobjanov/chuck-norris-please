@@ -14,7 +14,17 @@
     <div class="desktop">
       <div class="chuckJokes">
         <div class="intro">
-          <h2 class="msi">MSI 2020</h2>
+          <div class="top">
+            <h2 class="msi">MSI 2020</h2>
+
+            <div class="fav-nav">
+              <div class="burger">
+                <span class="line1"></span>
+                <span class="line2"></span>
+              </div>
+              <h2 class="fav-nav-text">Favourite</h2>
+            </div>
+          </div>
           <h2 class="greet">Hey!</h2>
           <h1 class="title">Let's try to find a joke for you:</h1>
         </div>
@@ -43,16 +53,22 @@
             name="mode"
             value="search"
           /><label for="searchMode">Search</label>
-          <input type="text" class="searchField hidden" />
+          <input
+            type="text"
+            class="searchField hidden"
+            placeholder="Free text search ..."
+          />
         </div>
 
-        <button class="getJokesBtn">Get some jokes now</button>
+        <button class="getJokesBtn">Get a joke</button>
 
         <div class="joke-container"></div>
       </div>
 
       <div class="glass">
-        <div class="favourites">Favourite</div>
+        <div class="favourites">
+          <h2 class="fav-title">Favourite</h2>
+        </div>
       </div>
     </div>
     <script src="./main.js"></script>
