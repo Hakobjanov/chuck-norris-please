@@ -17,19 +17,26 @@ const favContainer = document.querySelector(".favourites");
 const likeSvg =
   '<svg id="Layer_1" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1"><path class="fill" d="m446.51 84.39a134.8 134.8 0 0 1 0 190.65l-190.37 192.06-190.66-190.65a134.8 134.8 0 0 1 189.79-191.47l.59-.59a134.8 134.8 0 0 1 190.65 0z" fill="transparent"/><path d="m351.185 38.9a139.778 139.778 0 0 0 -95.969 37.773 140.782 140.782 0 0 0 -193.982 4.891c-54.89 54.891-54.89 144.221 0 199.133l190.666 190.647a6 6 0 0 0 4.242 1.757h.014a6 6 0 0 0 4.247-1.777l190.346-192.042a140.816 140.816 0 0 0 -99.564-240.382zm91.061 231.915-186.121 187.785-186.404-186.388c-50.213-50.232-50.214-131.95 0-182.162a128.771 128.771 0 0 1 181.346-.8 6 6 0 0 0 8.451-.034l.587-.588a128.808 128.808 0 1 1 182.141 182.186z" fill="#FF6767"/></svg>';
 
-randomRadio.addEventListener("click", () => {
-  categories.innerHTML = "";
-  searchField.classList.add("hidden");
+randomRadio.addEventListener("change", () => {
+  if (randomRadio.checked) {
+    categories.classList.add("hidden");
+    searchField.classList.add("hidden");
+  }
 });
 
-categoriesRadio.addEventListener("click", () => {
-  searchField.classList.add("hidden");
-  showCategories();
+categoriesRadio.addEventListener("change", () => {
+  if (categoriesRadio.checked) {
+    categories.classList.remove("hidden");
+    searchField.classList.add("hidden");
+    showCategories();
+  }
 });
 
-searchRadio.addEventListener("click", () => {
-  categories.innerHTML = "";
-  searchField.classList.remove("hidden");
+searchRadio.addEventListener("change", () => {
+  if (searchRadio.checked) {
+    categories.classList.add("hidden");
+    searchField.classList.remove("hidden");
+  }
 });
 
 getJokesBtn.addEventListener("click", () => {
@@ -42,13 +49,16 @@ function handleLike(event, data) {
   console.log(event.target.checked);
   if (event.target.checked) {
     favourites.push(data);
-    //TODO update favContainer
+    favContainer.append(buildJoke(data));
   } else {
     favourites.splice(
       favourites.findIndex((joke) => joke.id === data.id),
       1
     );
-    //TODO update favContainer
+    [...favContainer.querySelectorAll("a")]
+      .find((a) => a.innerText === data.id)
+      .closest(".wrapper")
+      .remove();
   }
   localStorage.favourites = JSON.stringify(favourites);
 }
@@ -114,7 +124,7 @@ function buildJoke(data) {
   wrapper.className = "wrapper";
   const jokeId = document.createElement("div");
   jokeId.className = "jokeID";
-  jokeId.innerText = `ID: ${data.id}`;
+  jokeId.innerHTML = `ID: <a href="#">${data.id}</a>`;
   const joke = document.createElement("div");
   joke.className = "joke";
   const mode = document.querySelector('[name="mode"]:checked').value;

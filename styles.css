@@ -9,6 +9,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  color: #333333;
   font-size: 18px;
 }
 
@@ -21,7 +22,7 @@ body {
 /*chick Jokes section styles*/
 .chuckJokes {
   width: 66.66%;
-  padding: 40px 0 0 140px;
+  padding: 40px 140px 0 140px;
 }
 
 .msi {
@@ -53,17 +54,18 @@ body {
   display: none;
 }
 
-.mode-selection label:not(.cat) {
+.mode-selection > label {
   position: relative;
-  display: inline-block;
+  display: block;
   cursor: pointer;
   padding-left: 35px;
   line-height: 18px;
   margin-bottom: 10px;
   user-select: none;
+  padding-top: 7px;
 }
 
-.mode-selection label:not(.cat)::before {
+.mode-selection > label::before {
   content: "";
   background: url(./images/empty-mode.svg);
   background-position: 0 0;
@@ -90,12 +92,13 @@ body {
 
 .categories {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
-  margin: 0;
+  margin: 20px 0;
 }
 
 .categories li {
-  margin: 20px 10px 20px 0;
+  margin: 7px 10px 7px 0;
 }
 
 .categories li:hover {
@@ -103,6 +106,10 @@ body {
 }
 
 .cat span {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 3px;
   color: #ababab;
   border: 2px solid #f8f8f8;
   border-radius: 6px;
@@ -128,14 +135,16 @@ body {
 }
 
 .joke-container {
-  background-color: #ccc;
+  background-color: #f8f8f8;
   position: relative;
 }
 
 .wrapper {
+  position: relative;
   background-image: url(./images/message.svg);
   background-repeat: no-repeat;
   background-position: 20px 20px;
+  padding: 67px 40px 45px 100px;
 }
 
 .hidden {
@@ -143,7 +152,37 @@ body {
 }
 
 .joke {
-  height: 50px;
+  position: relative;
+}
+
+.jokeID {
+  position: relative;
+}
+
+.jokeID::after {
+  content: "";
+  background: url(./images/link.svg);
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 10px;
+  padding-right: 15px;
+  /* background-position: 0 0;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 1px; */
+}
+
+.like {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.like svg {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
 }
 
 .like :checked + svg .fill {
