@@ -85,9 +85,23 @@ body {
 }
 
 /*favourites section styles*/
+.glass {
+  width: 34%;
+}
+
 .favourites {
-  width: 33.33%;
-  background-color: #f8f8f8;
+  background-color: #ee8686;
+  height: 100%;
+}
+
+.favourites > .wrapper {
+  width: 83.5%;
+  background-image: url(./images/liked-bg.svg);
+
+  margin: auto;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .categories {
@@ -95,6 +109,9 @@ body {
   flex-wrap: wrap;
   list-style: none;
   margin: 20px 0;
+  transition: 2s;
+  max-height: 500px;
+  overflow-y: hidden;
 }
 
 .categories li {
@@ -135,16 +152,26 @@ body {
 }
 
 .joke-container {
-  background-color: #f8f8f8;
   position: relative;
+}
+
+.zero-height {
+  max-height: 0;
+  margin: 0;
 }
 
 .wrapper {
   position: relative;
   background-image: url(./images/message.svg);
+  background-color: #faa7a7;
   background-repeat: no-repeat;
   background-position: 20px 20px;
   padding: 67px 40px 45px 100px;
+  transition: 1s ease-in;
+}
+
+.transparent {
+  opacity: 0;
 }
 
 .hidden {
