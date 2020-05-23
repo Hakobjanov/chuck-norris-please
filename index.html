@@ -12,11 +12,12 @@
   </head>
   <body>
     <div class="desktop">
-      <div class="chuckJokes">
+      <div class="chuck-jokes">
         <div class="intro">
           <div class="top">
             <h2 class="msi">MSI 2020</h2>
 
+            <!--mode selection section-->
             <div class="fav-nav">
               <div class="burger">
                 <span class="line1"></span>
@@ -31,7 +32,7 @@
         <div class="mode-selection">
           <input
             id="randomMode"
-            class="randomMode"
+            class="random-mode"
             type="radio"
             name="mode"
             value="random"
@@ -39,7 +40,7 @@
           /><label for="randomMode"> Random</label>
           <input
             id="categoriesMode"
-            class="categoriesMode"
+            class="categories-mode"
             type="radio"
             name="mode"
             value="categories"
@@ -48,7 +49,7 @@
 
           <input
             id="searchMode"
-            class="searchMode"
+            class="search-mode"
             type="radio"
             name="mode"
             value="search"
@@ -60,17 +61,22 @@
           />
         </div>
 
-        <button class="getJokesBtn">Get a joke</button>
+        <button class="get-jokes-btn">Get a joke</button>
 
+        <!--joke container-->
         <div class="joke-container"></div>
       </div>
 
-      <div class="glass">
-        <div class="favourites">
-          <h2 class="fav-title">Favourite</h2>
+      <!--favourite jokes side-bar section-->
+      <div class="glass clean">
+        <div class="side-bar">
+          <div class="favourites">
+            <h2 class="fav-title">Favourite</h2>
+          </div>
         </div>
       </div>
     </div>
+
     <script src="./main.js"></script>
   </body>
 </html>

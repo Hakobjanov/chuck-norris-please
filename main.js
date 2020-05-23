@@ -1,12 +1,10 @@
-const getJokesBtn = document.querySelector(".getJokesBtn");
+const getJokesBtn = document.querySelector(".get-jokes-btn");
 const joke = document.querySelector(".joke");
 const update = document.querySelector(".update");
 const jokeId = document.querySelector(".jokeId");
 const jokeCategory = document.querySelector(".joke-category");
-const likeBtn = document.querySelector(".likeBtn");
 const jokeContainer = document.querySelector(".joke-container");
 const categories = document.querySelector(".categories");
-//const categoriesBtn = document.querySelector(".categoriesBtn");
 const like = document.querySelector(".liked");
 const randomRadio = document.querySelector('[value="random"]');
 const categoriesRadio = document.querySelector('[value="categories"]');
@@ -22,12 +20,15 @@ const likeSvg =
 const defaultData = {
   categories: [],
   icon_url: "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
-  id: "opIsrHakSP6JcOcf2Kz7Jg",
+  id: "WELL, THIS IS A MISTAKE ON YOUR PART",
   updated_at: "2020",
-  url: "https://api.chucknorris.io/jokes/opIsrHakSP6JcOcf2Kz7Jg",
-  value: "CHUCK NORRIS DOESNT UNDERSTAND, JOKE CHUCK NORRIS SMASH ^-^",
+  categories: ["SUFFERING"],
+  url: "WELL, THIS IS A MISTAKE ON YOUR PART",
+  value:
+    "There is no jokes about this. And now Almighty Chuck Norris is looking for you. You should be scared for your life! Good luck!",
 };
 
+//Event listeners
 burgerBtn.addEventListener("click", toggleMenu);
 
 glass.addEventListener("click", (e) => {
@@ -85,10 +86,13 @@ document.body.addEventListener("keydown", (e) => {
   }
 });
 
+//favourites array for local storage
 const favourites = JSON.parse(localStorage.favourites || "[]");
+
 favContainer.append(...favourites.map(buildJoke));
+
+//Functions
 function handleLike(event, data) {
-  console.log(event.target.checked);
   if (event.target.checked) {
     favourites.push(data);
     favContainer.append(buildJoke(data));
@@ -159,10 +163,6 @@ function showCategories(e) {
         categories += `<li><label class="cat"><input hidden type="radio" name="cat" value="${category}"><span>${category}</span></label></li>`;
       });
       document.querySelector(".categories").innerHTML = categories;
-      //   const id = data.id;
-      //   console.log(joke, id);
-
-      //   jokeContainer.append(joke);
     })
     .catch(function (err) {
       console.log(err);
@@ -177,7 +177,7 @@ function buildJoke(data) {
   const wrapper = document.createElement("div");
   wrapper.className = "wrapper transparent";
   const jokeId = document.createElement("div");
-  jokeId.className = "jokeID";
+  jokeId.className = "joke-id";
   jokeId.innerHTML = `ID: <a href="${data.url}">${data.id}</a>`;
   const joke = document.createElement("div");
   joke.className = "joke";
@@ -201,17 +201,21 @@ function buildJoke(data) {
     handleLike(e, data);
   });
   const jokeInfo = document.createElement("div");
-  jokeInfo.className = "jokeInfo";
+  jokeInfo.className = "joke-info";
   const jokeUpdate = document.createElement("div");
   jokeUpdate.className = "update";
   //getting the update time
   const today = Date();
-  console.log(today, data.updated_at);
-  jokeUpdate.innerText = `Last update: ${data.updated_at}`;
-  const jokeCategory = document.createElement("div");
-  jokeCategory.className = "joke-category";
-  jokeCategory.innerText = data.categories[0] || "";
-  jokeInfo.append(jokeUpdate, jokeCategory);
+  jokeUpdate.innerText = `Last update: ${calcHoursPassed(
+    data.updated_at
+  )} hours ago`;
+  jokeInfo.append(jokeUpdate);
+  if (data.categories[0]) {
+    const jokeCategory = document.createElement("div");
+    jokeCategory.className = "joke-category";
+    jokeCategory.innerText = data.categories[0];
+    jokeInfo.append(jokeCategory);
+  }
   wrapper.append(jokeId, joke, like, jokeInfo);
 
   setTimeout(() => wrapper.classList.remove("transparent"), 5);
@@ -220,6 +224,11 @@ function buildJoke(data) {
 }
 
 function toggleMenu() {
+  glass.classList.toggle("clean");
   glass.classList.toggle("nav-active");
   burgerBtn.classList.toggle("cross");
+}
+
+function calcHoursPassed(dateTime) {
+  return Math.trunc((new Date() - new Date(dateTime)) / 36e5);
 }
