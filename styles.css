@@ -304,6 +304,10 @@ body {
   background-color: #f8f8f8;
 }
 
+.side-bar {
+  height: 100%;
+}
+
 /*favourites styles*/
 .favourites > .wrapper {
   width: 83.5%;
