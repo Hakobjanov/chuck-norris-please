@@ -28,9 +28,12 @@ const defaultData = {
   value: "CHUCK NORRIS DOESNT UNDERSTAND, JOKE CHUCK NORRIS SMASH ^-^",
 };
 
-burgerBtn.addEventListener("click", () => {
-  console.log("fuck you");
-  toggleMenu();
+burgerBtn.addEventListener("click", toggleMenu);
+
+glass.addEventListener("click", (e) => {
+  if (e.target === glass) {
+    toggleMenu();
+  }
 });
 
 randomRadio.addEventListener("change", () => {

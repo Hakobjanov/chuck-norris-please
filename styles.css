@@ -253,6 +253,9 @@ body {
   letter-spacing: 2px;
   font-weight: 500;
   text-transform: uppercase;
+  background-color: #fff;
+  padding: 6px 20px;
+  border-radius: 6px;
 }
 
 .like {
@@ -277,7 +280,9 @@ body {
 .glass {
   width: 34%;
 }
-
+.fav-nav {
+  margin-right: 23px;
+}
 .fav-title {
   font-size: 20px;
   line-height: 28px;
@@ -288,7 +293,6 @@ body {
 
 .favourites {
   background-color: #f8f8f8;
-  height: 100%;
 }
 
 .favourites > .wrapper {
@@ -299,6 +303,26 @@ body {
   background-color: #fff;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+}
+
+.favourites > .wrapper {
+  background-position: 20px 47px;
+  padding: 47px 20px 20px 80px;
+}
+
+.favourites > .wrapper .like {
+  top: 20px;
+  right: 20px;
+}
+
+.favourites > .wrapper .joke {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+.favourites > .wrapper .joke-category {
+  background-color: #f8f8f8;
 }
 
 /*burger styles*/
@@ -370,10 +394,13 @@ body {
 
   .glass {
     position: fixed;
+    overflow: scroll;
+    z-index: 5;
     top: 0;
+    bottom: 0;
     left: 100%;
     width: 100%;
-    height: 100vh;
+
     display: flex;
     justify-content: flex-end;
     background: rgba(0, 0, 0, 0.3);
@@ -389,5 +416,51 @@ body {
 
   .favourites {
     width: 56.5%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .cross .line1 {
+    transform: rotateZ(45deg) translate(2px) translateY(2px);
+  }
+
+  .cross .line2 {
+    transform: rotateZ(-45deg) translate(3px) translateY(-2px);
+  }
+
+  .chuckJokes {
+    padding: 20px 20px 0 20px;
+  }
+
+  .fav-nav {
+    top: 20px;
+    right: 20px;
+  }
+
+  .searchField {
+    width: 340px;
+  }
+
+  .favourites {
+    width: 100%;
+  }
+  .like {
+    top: 20px;
+    right: 20px;
+  }
+
+  .wrapper {
+    background-position: 20px 67px;
+    padding: 47px 20px 20px 80px;
+  }
+
+  .jokeInfo {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .joke-category {
+    margin-top: 10px;
   }
 }
